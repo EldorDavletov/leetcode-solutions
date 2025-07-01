@@ -16,9 +16,9 @@ public class LongestHarmonious {
         }
 
         int maxLen = 0;
-        for (int num : nums){
-            if (map.get(num+1) != null) {
-                maxLen = Math.max(maxLen, map.get(num) + map.get(num + 1));
+        for (int key : map.keySet()){
+            if (map.containsKey(key+1)) {
+                maxLen = Math.max(maxLen, map.get(key) + map.get(key + 1));
             }
         }
         return maxLen;
