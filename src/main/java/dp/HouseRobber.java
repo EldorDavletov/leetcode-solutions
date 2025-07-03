@@ -27,4 +27,16 @@ public class HouseRobber {
 
         return memo.get(index);
     }
+
+    private int dp(int i, int[] nums, Map<Integer, Integer> memo) {
+        if (i < 0) return 0;
+        if (memo.containsKey(i)) return memo.get(i);
+
+        int take = dp(i - 2, nums, memo) + nums[i];
+        int skip = dp(i - 1, nums, memo);
+
+        int result = Math.max(take, skip);
+        memo.put(i, result);
+        return result;
+    }
 }
